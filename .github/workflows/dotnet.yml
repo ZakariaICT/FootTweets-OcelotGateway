@@ -35,3 +35,16 @@ jobs:
         docker build -t zakaria469980/apigateway .
         docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
         docker push zakaria469980/apigateway:latest
+
+    # - name: Install Azure CLI
+    #   run: |
+    #     curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+
+    # - name: AKS Login
+    #   run: az login --service-principal -u ${{ secrets.AZURE_CLIENT_ID }} -p ${{ secrets.AZURE_CLIENT_SECRET }} --tenant ${{ secrets.AZURE_TENANT_ID }}
+
+    # - name: Set AKS Context
+    #   run: az aks get-credentials --resource-group <FootTweetsCluster_group> --name <myakscluster>
+
+    # - name: Deploy to AKS
+    #   run: kubectl apply -f deployment.yaml
