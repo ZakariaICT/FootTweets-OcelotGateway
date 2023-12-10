@@ -1,23 +1,31 @@
 #See https://aka.ms/customizecontainer to learn how to customize your debug container and how Visual Studio uses this Dockerfile to build your images for faster debugging.
 
-FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS base
+# Use the official .NET SDK image as the build environment
+FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build-env
+
+# Set the working directory inside the container
 WORKDIR /app
-EXPOSE 80
 
-FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
-WORKDIR /src
-COPY ["FootTweets-OcelotGateway/FootTweets-OcelotGateway/OcelotGateway/", "."]
-RUN dotnet restore "OcelotGateway.csproj"
-COPY . .
-WORKDIR "/src/OcelotGateway"
-RUN dotnet build "OcelotGateway.csproj" -c Release -o /app/build
+# Copy the project file and restore dependencies
+COPY OcelotGateway/*.csproj ./OcelotGateway/
+RUN dotnet restore ./OcelotGateway/OcelotGateway.csproj
 
-FROM build AS publish
-RUN dotnet publish -c Release -o /app/publish /p:UseAppHost=false
+# Copy the remaining source code
+COPY . ./
 
-FROM base AS final
+# Build the application
+RUN dotnet publish -c Release -o out
+
+# Use the official .NET runtime image as the final base image
+FROM mcr.microsoft.com/dotnet/aspnet:6.0
+
+# Set the working directory inside the container
 WORKDIR /app
-COPY --from=publish /app/publish .
+
+# Copy the published output from the build environment
+COPY --from=build-env /app/out .
+
+# Specify the entry point for the application
 ENTRYPOINT ["dotnet", "OcelotGateway.dll"]
 
 
