@@ -16,7 +16,7 @@ spec:
       - name: gateway
         image: zakaria469980/apigateway:latest
         ports:
-        - containerPort: 8080
+        - containerPort: 80
   
 ---
 apiVersion: v1
@@ -25,15 +25,9 @@ metadata:
   name: gateway-srv
 spec:
   selector:
-    app: gateway
+    app: gateway  # <-- Corrected selector label
   ports:
-    - protocol: TCP
-      port: 8080 # externl port
-      targetPort: 80 # internal port
-      name: http-port
-    - protocol: TCP
-      port: 8181 # externl port
-      targetPort: 443 # internal port
-      name: https-port
-  # LoadBalancer to expose service externally, Should use nodePort or ClusterIp when Ingress is setup
+  - protocol: TCP
+    port: 80
+    targetPort: 80
   type: LoadBalancer
