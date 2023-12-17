@@ -29,7 +29,7 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "user-service", // Update to the actual service name
+          "Host": "user-service",
           "Port": 5117
         }
       ],
@@ -37,11 +37,23 @@
       "UpstreamHttpMethod": [ "GET", "POST" ]
     },
     {
+      "DownstreamPathTemplate": "/swagger/media/{*path}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "media-service",
+          "Port": 5117
+        }
+      ],
+      "UpstreamPathTemplate": "/swagger/media/{*path}",
+      "UpstreamHttpMethod": [ "GET", "POST" ]
+    },
+    {
       "DownstreamPathTemplate": "/",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "media-service", // Update to the actual service name
+          "Host": "media-service",
           "Port": 5117
         }
       ],
@@ -50,3 +62,4 @@
     }
   ]
 }
+
