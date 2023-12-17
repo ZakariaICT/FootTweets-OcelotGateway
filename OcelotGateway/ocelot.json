@@ -5,7 +5,7 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "user-service-clusterip",
+          "Host": "user-service",
           "Port": 80
         }
       ],
@@ -17,7 +17,7 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "media-service-clusterip",
+          "Host": "media-service",
           "Port": 80
         }
       ],
