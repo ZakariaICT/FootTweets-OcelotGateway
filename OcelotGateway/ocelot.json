@@ -6,7 +6,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "user-service",
-          "Port": 80
+          "Port": 5117
         }
       ],
       "UpstreamPathTemplate": "/api/User{catchAll}",
@@ -18,7 +18,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "media-service",
-          "Port": 80
+          "Port": 5117
         }
       ],
       "UpstreamPathTemplate": "/api/Media{catchAll}",
@@ -30,7 +30,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "user-service", // Update to the actual service name
-          "Port": 80
+          "Port": 5117
         }
       ],
       "UpstreamPathTemplate": "/swagger/{*path}",
@@ -42,7 +42,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "media-service", // Update to the actual service name
-          "Port": 80
+          "Port": 5117
         }
       ],
       "UpstreamPathTemplate": "/",
