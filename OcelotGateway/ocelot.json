@@ -23,6 +23,30 @@
       ],
       "UpstreamPathTemplate": "/api/Media{catchAll}",
       "UpstreamHttpMethod": [ "GET", "POST" ]
+    },
+    {
+      "DownstreamPathTemplate": "/swagger/{*path}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "user-service", // Update to the actual service name
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/swagger/{*path}",
+      "UpstreamHttpMethod": [ "GET", "POST" ]
+    },
+    {
+      "DownstreamPathTemplate": "/",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "media-service", // Update to the actual service name
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/",
+      "UpstreamHttpMethod": [ "GET", "POST" ]
     }
   ]
 }
