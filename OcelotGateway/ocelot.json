@@ -24,42 +24,6 @@
       "UpstreamPathTemplate": "/api/Media{catchAll}",
       "UpstreamHttpMethod": [ "GET", "POST" ]
     },
-    {
-      "DownstreamPathTemplate": "/swagger/{*path}",
-      "DownstreamScheme": "http",
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "user-service",
-          "Port": 5117
-        }
-      ],
-      "UpstreamPathTemplate": "/swagger/{*path}",
-      "UpstreamHttpMethod": [ "GET", "POST" ]
-    },
-    {
-      "DownstreamPathTemplate": "/swagger/media/{*path}",
-      "DownstreamScheme": "http",
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "media-service",
-          "Port": 5117
-        }
-      ],
-      "UpstreamPathTemplate": "/swagger/media/{*path}",
-      "UpstreamHttpMethod": [ "GET", "POST" ]
-    },
-    {
-      "DownstreamPathTemplate": "/",
-      "DownstreamScheme": "http",
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "media-service",
-          "Port": 5117
-        }
-      ],
-      "UpstreamPathTemplate": "/",
-      "UpstreamHttpMethod": [ "GET", "POST" ]
-    }
   ]
 }
 
