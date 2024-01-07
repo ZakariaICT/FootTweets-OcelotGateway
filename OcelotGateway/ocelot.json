@@ -24,6 +24,18 @@
       "UpstreamPathTemplate": "/api/Media{catchAll}",
       "UpstreamHttpMethod": [ "GET", "POST" ]
     },
+    {
+      "DownstreamPathTemplate": "/api/Follow{catchAll}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "follow-service",
+          "Port": 5117
+        }
+      ],
+      "UpstreamPathTemplate": "/api/Follow{catchAll}",
+      "UpstreamHttpMethod": [ "GET", "POST" ]
+    }
   ]
 }
 
