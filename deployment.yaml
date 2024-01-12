@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: gateway
-        image: zakaria469980/gatewayocelot:latest
+        image: zakaria469980/gatewayfoottweetsssss:latest
         ports:
         - containerPort: 80
   

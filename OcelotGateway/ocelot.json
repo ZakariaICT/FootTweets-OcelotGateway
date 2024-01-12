@@ -18,24 +18,59 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "media-service",
-          "Port": 5117
+          "Port": 5118
         }
       ],
       "UpstreamPathTemplate": "/api/Media{catchAll}",
       "UpstreamHttpMethod": [ "GET", "POST" ]
     },
     {
-      "DownstreamPathTemplate": "/api/Follow{catchAll}",
+      "DownstreamPathTemplate": "/api/Follow/follow",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
           "Host": "follow-service",
-          "Port": 5117
+          "Port": 5119
         }
       ],
-      "UpstreamPathTemplate": "/api/Follow{catchAll}",
-      "UpstreamHttpMethod": [ "GET", "POST" ]
+      "UpstreamPathTemplate": "/api/Follow/follow",
+      "UpstreamHttpMethod": [ "POST" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/Follow/unfollow",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "follow-service",
+          "Port": 5119
+        }
+      ],
+      "UpstreamPathTemplate": "/api/Follow/unfollow",
+      "UpstreamHttpMethod": [ "POST" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/Follow/{userId}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "follow-service",
+          "Port": 5119
+        }
+      ],
+      "UpstreamPathTemplate": "/api/Follow/{userId}",
+      "UpstreamHttpMethod": [ "GET" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/Follow/following/{userId}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "follow-service",
+          "Port": 5119
+        }
+      ],
+      "UpstreamPathTemplate": "/api/Follow/following/{userId}",
+      "UpstreamHttpMethod": [ "GET" ]
     }
   ]
 }
-
