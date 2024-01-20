@@ -1,0 +1,19 @@
+# ocelot-gateway-ingress.yaml
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ocelot-gateway-ingress
+  namespace: default
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: foottweets.nl
+    http:
+      paths:
+      - path: /api/
+        pathType: Prefix
+        backend:
+          service:
+            name: gateway
+            port:
+              number: 80
