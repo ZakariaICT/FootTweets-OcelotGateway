@@ -10,7 +10,7 @@
         }
       ],
       "UpstreamPathTemplate": "/api/User{catchAll}",
-      "UpstreamHttpMethod": [ "GET", "POST" ]
+      "UpstreamHttpMethod": [ "GET", "POST", "DELETE" ]
     },
     {
       "DownstreamPathTemplate": "/api/Media{catchAll}",
